@@ -95,9 +95,17 @@ class MySqlCtr:
             print("insert err : over MEDIUMBLOB ") # これより大きい型 : LONGTEXT
             return
 
-        self.cursor.execute(mysql_order)
-        self.connector.commit()
+        try:
+            self.cursor.execute(mysql_order)
+            self.connector.commit()
 
+        except:
+            print("insert err (err ids) : ")
+            for set in sets:
+                print(" > " + format( set["num"]) )
+            pass
+
+        return
 
     def show_elem_id(self , id):
 

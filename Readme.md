@@ -23,6 +23,10 @@ def sql_cliant():
 charasetは，"utf8mb4"に固定する．
 wikiダンプデータには，絵文字などの4byte文字列が含まれるため，この設定をする．
 
+## 使用したライブラリ
+
+
+
 ## 前処理
 実際のソースファイル
 > pre_process.py

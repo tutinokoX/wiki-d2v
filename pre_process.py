@@ -52,6 +52,8 @@ def text_replace(text):
     text = re.sub("^#.*", "", text)
 
     text = text.replace('/','')
+    text = text.replace('\\', '')
+
     return text
 
 
