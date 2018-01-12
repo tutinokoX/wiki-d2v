@@ -6,10 +6,8 @@ v4からの変更点
 import re
 import sys
 import time
-
 import MeCab
 from joblib import Parallel, delayed
-
 from doc import sql_operation
 
 
@@ -33,7 +31,7 @@ def get_surfaces(node):
 # ページ単位での除去
 def text_replace(text):
 
-    text = text.replace('\"','\"\"')
+
     # text = text.replace('\'', '\'\'')
     text = text.replace('[','')
     text = text.replace(']','')
@@ -53,6 +51,7 @@ def text_replace(text):
 
     text = text.replace('/','')
     text = text.replace('\\', '')
+    text = text.replace('\"', '')
 
     return text
 

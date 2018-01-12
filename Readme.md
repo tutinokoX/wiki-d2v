@@ -25,6 +25,36 @@ wikiダンプデータには，絵文字などの4byte文字列が含まれる�
 
 ## 使用したライブラリ
 
+何入れたか忘れた^^;
+
+とりあえず，pipリスト
+```
+% pip3 list                                                                                                                                                     
+boto (2.48.0)
+bz2file (0.98)
+click (6.7)
+Flask (0.12.2)
+gensim (3.0.1)
+itsdangerous (0.24)
+Jinja2 (2.9.6)
+joblib (0.11)
+MarkupSafe (1.0)
+mecab-python3 (0.7)
+mysql-connector-python (8.0.5)
+mysql-connector-python-rf (2.2.2)
+numpy (1.13.3)
+pip (9.0.1)
+pyknp (0.3)
+requests (2.9.1)
+scipy (0.19.1)
+setuptools (32.2.0)
+six (1.11.0)
+smart-open (1.5.3)
+Werkzeug (0.12.2)
+wheel (0.29.0)
+```
+
+環境を用意する必要性を感じた．．(env~的なやつ)
 
 
 ## 前処理

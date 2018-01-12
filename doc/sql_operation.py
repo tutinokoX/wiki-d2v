@@ -107,6 +107,18 @@ class MySqlCtr:
 
         return
 
+    def get_text_mrop_cursor_between(self, limit, offset):
+
+        mysql_order = "select morp_id , morp_title , morp_text"
+        mysql_order += " from " + self.table
+        mysql_order += " where morp_id BETWEEN "
+        mysql_order += str(offset)
+        mysql_order += " AND " + str(offset + limit)
+
+        self.cursor.execute(mysql_order)
+        return self.cursor
+
+
     def show_elem_id(self , id):
 
         mysql_order = "select " \

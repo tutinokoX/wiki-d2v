@@ -8,4 +8,8 @@ secret.py
 .idea
 __pycache__
 
+# 成果物
+model
+result
+
 
