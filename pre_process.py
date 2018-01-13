@@ -220,6 +220,8 @@ def morps_into_sql(get_offset = 0, get_limit = 500 , debug_size = 1000):
         rows = csr.fetchall()
         get_offset += get_limit
 
+        # TODO: この終わらせ方だとlimit以内が空で適応してしまう．
+        # sqlリクエストで，最終ID取得した方が良い
         # mysqlからの取得データがなかったら終了
         if not rows:
             print(" all finish")

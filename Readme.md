@@ -167,6 +167,9 @@ mysql> DESCRIBE morpheme_v3;
 
 
 ## 学習
+mysqlサーバから学習データをダウンロードする．
+ダウンロードしたデータを用いて学習を行う．
+
 
 
 ## jupyterでの操作
