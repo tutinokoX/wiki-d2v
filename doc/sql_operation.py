@@ -119,6 +119,14 @@ class MySqlCtr:
         return self.cursor
 
 
+    def get_last_id(self):
+        mysql_order = "select page_id from mwiki.page order by page_id desc limit 1"
+
+        self.cursor.execute(mysql_order)
+        rows = self.cursor.fetchall()
+
+        return rows[0][0]
+
     def show_elem_id(self , id):
 
         mysql_order = "select " \

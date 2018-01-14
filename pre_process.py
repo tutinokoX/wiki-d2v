@@ -208,11 +208,16 @@ def morps_into_sql(get_offset = 0, get_limit = 500 , debug_size = 1000):
 
     # 最大IDを取得 プログラム進捗確認のため（余裕があれば作成）
     # max_size = 200 # mysqlで確認したサイズ 自動で取得できるけどね．．
+    max_size = sql_op.get_last_id()
 
     while True:
         if not __debug__:
             if(get_offset >= debug_size):
                 print(" debug finish")
+                break
+        else:
+            if(get_offset >= max_size):
+                print(" all finish")
                 break
 
         csr = sql_op.get_dump_cursor(get_limit, get_offset)
@@ -220,20 +225,13 @@ def morps_into_sql(get_offset = 0, get_limit = 500 , debug_size = 1000):
         rows = csr.fetchall()
         get_offset += get_limit
 
-        # TODO: この終わらせ方だとlimit以内が空で適応してしまう．
-        # sqlリクエストで，最終ID取得した方が良い
-        # mysqlからの取得データがなかったら終了
-        if not rows:
-            print(" all finish")
-            break
-
         # 形態素解析(並列処理の効果向上のため，まとめて解析)
         morp_datas = morp(rows)
 
         # mysqlに形態素解析したデータを格納
         into_sql(sql_op , morp_datas)
 
-        sys.stdout.write('\r前処理中 {}'.format(get_offset))
+        sys.stdout.write('\r前処理中 {}/{}'.format(get_offset,max_size))
 
 
 if __name__ == "__main__":
@@ -241,7 +239,7 @@ if __name__ == "__main__":
     s = time.time()
 
     # データベース -> 形態素解析 -> データベース
-    morps_into_sql()
+    morps_into_sql(get_offset=3155443)
 
     elapsed = time.time() - s
     print('time: {0} [sec]'.format(elapsed))
