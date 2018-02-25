@@ -239,7 +239,7 @@ if __name__ == "__main__":
     s = time.time()
 
     # データベース -> 形態素解析 -> データベース
-    morps_into_sql(get_offset=3155443)
+    morps_into_sql()
 
     elapsed = time.time() - s
     print('time: {0} [sec]'.format(elapsed))
